@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>محل الموبايلات | احجز موبايلك من مكانك</title>
-<meta name="description" content="اتفرج على الموبايلات والإكسسوارات، واحجز اللي عاجبك بضغطة واحدة على واتساب.">
-<meta property="og:title" content="محل الموبايلات">
+<title>الشريف للموبايلات | احجز موبايلك من مكانك</title>
+<meta name="description" content="الشريف للموبايلات: كل موبايلات سامسونج A وآيفون بأسعار محدثة. احجز بضغطة على واتساب.">
+<meta property="og:title" content="الشريف للموبايلات">
 <meta property="og:description" content="اختار موبايلك واحجزه على واتساب في دقيقة.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#075E54">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,9 @@
 <style>
 /* ===== Design tokens (landing-page-design skill) ===== */
 :root{
-  --bg:#000000; --s1:#181818; --s2:#1F1F1F; --s3:#272727;
-  --txt:#FFFFFF; --mut:#9B9B9B; --wa:#25D366; --wa-ink:#062B16;
+  --bg:#F0F2F5; --s1:#FFFFFF; --s2:#E7F6EC; --line:#DDE3E8;
+  --txt:#111B21; --mut:#667781;
+  --gr:#25D366; --gr-dark:#075E54; --gr-mid:#128C7E; --gr-ink:#04332C;
   --ease:cubic-bezier(0.22,1,0.36,1);
 }
 .h1{font-size:60px;line-height:60px;font-weight:600}
@@ -46,7 +47,7 @@ h1,h2,h3{text-wrap:balance}
 
 .skip{
   position:absolute; top:-48px; right:16px; z-index:100;
-  background:var(--s2); padding:8px 12px; border-radius:8px;
+  background:var(--s1); padding:8px 12px; border-radius:8px;
   transition:top 300ms var(--ease);
 }
 .skip:focus{top:16px}
@@ -55,17 +56,21 @@ h1,h2,h3{text-wrap:balance}
 nav{
   position:fixed; top:16px; right:50%; transform:translateX(50%); z-index:60;
   display:flex; align-items:center; gap:24px;
-  background:rgba(24,24,24,.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-  border:1px solid var(--s3); border-radius:999px; padding:8px 12px;
+  background:rgba(255,255,255,.88); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--line); border-radius:999px; padding:8px 12px;
   max-width:calc(100vw - 32px);
+  box-shadow:0 4px 16px rgba(7,94,84,.08);
 }
-.brand{display:flex; align-items:center; gap:8px}
-.brand i{font-size:20px;color:var(--wa)}
+.brand{display:flex; align-items:center; gap:8px; font-weight:600}
+.brand i{
+  width:32px; height:32px; border-radius:999px; display:grid; place-items:center;
+  background:var(--gr-dark); color:#fff; font-size:16px;
+}
 .links{display:flex; gap:24px}
 .links a{color:var(--mut); transition:color 300ms var(--ease)}
 .links a:hover{color:var(--txt)}
 .links a:focus-visible, .btn:focus-visible, .chip:focus-visible, a.wa-float:focus-visible{
-  outline:2px solid var(--wa); outline-offset:2px; border-radius:8px;
+  outline:2px solid var(--gr-mid); outline-offset:2px; border-radius:8px;
 }
 @media(max-width:640px){.links{display:none}}
 
@@ -78,10 +83,10 @@ nav{
              border-color 300ms var(--ease), transform 500ms var(--ease);
 }
 .btn:active{transform:scale(.98)}
-.btn-wa{background:var(--wa); color:var(--wa-ink)}
-.btn-wa:hover{background:#3be07a}
-.btn-ghost{background:var(--s2); color:var(--txt); border-color:var(--s3)}
-.btn-ghost:hover{background:var(--s3)}
+.btn-wa{background:var(--gr); color:var(--gr-ink)}
+.btn-wa:hover{background:#3fe07b}
+.btn-ghost{background:var(--s1); color:var(--txt); border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--gr-mid); color:var(--gr-dark)}
 
 /* ===== Layout ===== */
 main{overflow:hidden}
@@ -91,45 +96,45 @@ section{max-width:1000px; margin:auto; padding:64px 16px}
 .hero{padding-top:160px; text-align:center}
 .hero h1{
   margin:0 auto; max-width:680px;
-  background:linear-gradient(to left,#FFFFFF,#9B9B9B);
+  background:linear-gradient(to left,#111B21,#5A6B75);
   -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 .hero .sub{max-width:680px; margin:16px auto 0; color:var(--mut)}
 .hero .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:32px}
 .hero .proof{margin-top:16px; color:var(--mut); display:flex; gap:8px; justify-content:center; align-items:center}
-.hero .proof i{color:var(--wa)}
+.hero .proof i{color:var(--gr-mid)}
 
 /* ===== Tagline reveal ===== */
 .tagline-sec{text-align:center}
-.tagline{max-width:680px; margin:auto}
+.tagline{max-width:680px; margin:auto; color:var(--gr-dark)}
 .tagline .w{
-  opacity:.3; display:inline-block;
+  opacity:.25; display:inline-block;
   transition:opacity 600ms var(--ease);
 }
 .tagline.on .w{opacity:1}
 
 /* ===== Section headings ===== */
 .sec-head{margin-bottom:32px}
-.sec-head .kicker{color:var(--wa); margin-bottom:8px; display:block}
+.sec-head .kicker{color:var(--gr-mid); margin-bottom:8px; display:block}
 
 /* ===== Benefits ===== */
 .benefits{display:grid; gap:16px; grid-template-columns:1fr}
 @media(min-width:640px){.benefits{grid-template-columns:1fr 1fr}}
 .benefit{
-  background:var(--s1); border:1px solid var(--s3); border-radius:16px; padding:24px;
+  background:var(--s1); border:1px solid var(--line); border-radius:16px; padding:24px;
 }
-.benefit i{font-size:24px; color:var(--wa); display:block; margin-bottom:12px}
+.benefit i{font-size:24px; color:var(--gr-mid); display:block; margin-bottom:12px}
 .benefit p{color:var(--mut); margin-top:4px}
 
 /* ===== Steps ===== */
 .steps{display:grid; gap:16px; grid-template-columns:1fr}
 @media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}}
 .step{
-  background:var(--s1); border:1px solid var(--s3); border-radius:16px; padding:24px;
+  background:var(--s1); border:1px solid var(--line); border-radius:16px; padding:24px;
 }
 .step .num{
   width:32px; height:32px; border-radius:999px; display:grid; place-items:center;
-  background:var(--s3); margin-bottom:12px;
+  background:var(--gr-dark); color:#fff; margin-bottom:12px;
 }
 .step p{color:var(--mut); margin-top:4px}
 
@@ -138,33 +143,34 @@ section{max-width:1000px; margin:auto; padding:64px 16px}
 .chips::-webkit-scrollbar{display:none}
 .chip{
   flex:0 0 auto; padding:8px 12px; border-radius:999px;
-  background:var(--s1); border:1px solid var(--s3); color:var(--mut);
+  background:var(--s1); border:1px solid var(--line); color:var(--mut);
   font-family:inherit; cursor:pointer;
   transition:background-color 300ms var(--ease), color 300ms var(--ease), border-color 300ms var(--ease);
 }
-.chip.on{background:var(--txt); border-color:var(--txt); color:#000}
+.chip.on{background:var(--gr-dark); border-color:var(--gr-dark); color:#fff}
+.src-note{color:var(--mut); margin-bottom:16px}
 .grid{display:grid; gap:16px; grid-template-columns:repeat(2,1fr)}
 @media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}
 .card{
-  background:var(--s1); border:1px solid var(--s3); border-radius:16px;
+  background:var(--s1); border:1px solid var(--line); border-radius:16px;
   overflow:hidden; display:flex; flex-direction:column;
   transition:border-color 300ms var(--ease), transform 500ms var(--ease);
 }
-.card:hover{border-color:#3a3a3a; transform:translateY(-2px)}
+.card:hover{border-color:var(--gr-mid); transform:translateY(-2px)}
 .thumb{
   aspect-ratio:4/3; display:grid; place-items:center;
-  background:var(--s2); font-size:48px; color:var(--mut);
+  background:var(--s2); font-size:48px; color:var(--gr-dark);
 }
 .card .body{padding:16px; display:flex; flex-direction:column; gap:4px; flex:1}
 .card .spec{color:var(--mut)}
-.price{margin-top:auto; padding-top:12px}
-.price.ask{color:var(--mut)}
+.price{margin-top:auto; padding-top:12px; color:var(--gr-dark); font-weight:600}
+.price small{display:block; color:var(--mut); font-weight:400}
 .reserve{margin-top:12px; width:100%; justify-content:center}
 @media(max-width:400px){.thumb{font-size:40px}}
 
 /* ===== FAQ ===== */
 .faq details{
-  background:var(--s1); border:1px solid var(--s3); border-radius:16px;
+  background:var(--s1); border:1px solid var(--line); border-radius:16px;
   padding:16px 24px; margin-bottom:12px;
 }
 .faq summary{
@@ -180,12 +186,12 @@ section{max-width:1000px; margin:auto; padding:64px 16px}
 
 /* ===== Info + final CTA ===== */
 .info{
-  background:var(--s1); border:1px solid var(--s3); border-radius:16px;
+  background:var(--s1); border:1px solid var(--line); border-radius:16px;
   padding:32px 24px; display:grid; gap:24px;
 }
 @media(min-width:640px){.info{grid-template-columns:repeat(3,1fr)}}
 .info .it{display:flex; gap:12px; align-items:flex-start}
-.info i{font-size:24px; color:var(--wa)}
+.info i{font-size:24px; color:var(--gr-mid)}
 .info span{color:var(--mut); display:block; margin-top:2px}
 
 .final{text-align:center}
@@ -194,18 +200,18 @@ section{max-width:1000px; margin:auto; padding:64px 16px}
 
 footer{
   text-align:center; color:var(--mut);
-  border-top:1px solid var(--s3); padding:32px 16px 96px;
+  border-top:1px solid var(--line); padding:32px 16px 96px;
 }
 
 /* ===== Floating WhatsApp ===== */
 .wa-float{
   position:fixed; bottom:24px; left:16px; z-index:60;
   width:56px; height:56px; border-radius:999px;
-  background:var(--wa); color:#fff; display:grid; place-items:center; font-size:28px;
-  box-shadow:0 8px 24px rgba(37,211,102,.35);
+  background:var(--gr); color:#fff; display:grid; place-items:center; font-size:28px;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);
   transition:transform 500ms var(--ease), background-color 300ms var(--ease);
 }
-.wa-float:hover{transform:translateY(-2px); background:#3be07a}
+.wa-float:hover{transform:translateY(-2px); background:#3fe07b}
 .wa-float:active{transform:scale(.98)}
 
 /* ===== Scroll reveal ===== */
@@ -231,23 +237,37 @@ footer{
 ============================================================ -->
 <script>
 const CONFIG = {
-  shopName: "محل الموبايلات",
+  shopName: "الشريف",
   whatsapp: "201117251816",
   address:  "",
   hours:    ""
 };
 
-/* المنتجات — دي أمثلة، بدّلها بمنتجاتك.
-   price: الرقم بالجنيه، أو null لو عايز يظهر "اسأل عن السعر"
-   cat: موبايلات / سماعات / إكسسوارات
-   icon: اسم أيقونة Phosphor (device-mobile / headphones / usb / device-mobile-case) */
+/* المنتجات — الأسعار استرشادية من دريم ستورز ودريم 2000 بتاريخ 27 نوفمبر 2026.
+   price: أقل سعر معلن للموديل بالجنيه ("يبدأ من")، أو null ليظهر "اسأل عن السعر"
+   cat: سامسونج / آيفون
+   icon: اسم أيقونة Phosphor */
 const PRODUCTS = [
-  { name:"آيفون 15",            cat:"موبايلات",  icon:"device-mobile",      spec:"128 جيجا · ضمان سنة",        price:null },
-  { name:"سامسونج جالاكسي A55", cat:"موبايلات",  icon:"device-mobile",      spec:"256 جيجا · 8 رام",           price:null },
-  { name:"شاومي ريدمي نوت 13",  cat:"موبايلات",  icon:"device-mobile",      spec:"256 جيجا · بطارية 5000",     price:null },
-  { name:"سماعة بلوتوث",        cat:"سماعات",    icon:"headphones",         spec:"عزل ضوضاء · بطارية 30 ساعة", price:null },
-  { name:"شاحن سريع 65 واط",    cat:"إكسسوارات", icon:"usb",                spec:"تايب سي · أصلي",             price:null },
-  { name:"جراب حماية + اسكرينة",cat:"إكسسوارات", icon:"device-mobile-case", spec:"لكل الموديلات",              price:null },
+  { name:"جالاكسي A07",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10000 },
+  { name:"جالاكسي A08",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10210 },
+  { name:"جالاكسي A17",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:11400 },
+  { name:"جالاكسي A18",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:13900 },
+  { name:"جالاكسي A17 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:15800 },
+  { name:"جالاكسي A26 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:18050 },
+  { name:"جالاكسي A27 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:18550 },
+  { name:"جالاكسي A36 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:23900 },
+  { name:"جالاكسي A56 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:25000 },
+  { name:"جالاكسي A37 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:26290 },
+  { name:"جالاكسي A57 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:30900 },
+  { name:"آيفون 15",           cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:57770 },
+  { name:"آيفون 16 بلس",       cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:58190 },
+  { name:"آيفون 16",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:59990 },
+  { name:"آيفون 17",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:75000 },
+  { name:"آيفون 17 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:95990 },
+  { name:"آيفون 17 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:99999 },
+  { name:"آيفون 18 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:119990 },
+  { name:"آيفون 18 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:137990 },
+  { name:"آيفون ديو",          cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:199999 },
 ];
 </script>
 
@@ -267,7 +287,7 @@ const PRODUCTS = [
 <!-- Hero -->
 <section class="hero" id="top">
   <h1 class="h1" id="hero-h">موبايلك الجديد محجوز من مكانك</h1>
-  <p class="sub body3">اتفرج على التشكيلة، اختار اللي يناسبك، واحجزه بضغطة واحدة على واتساب. صاحب المحل نفسو بيرد عليك.</p>
+  <p class="sub body3">في الشريف بتتفرج على كل موبايلات سامسونج وآيفون بأسعار محدثة، وتحجز اللي يعجبك بضغطة واحدة على واتساب. صاحب المحل نفسو بيرد عليك.</p>
   <div class="cta-row">
     <a class="btn btn-wa btn-lg wa-link" target="_blank" rel="noopener"><i class="ph ph-whatsapp-logo"></i>احجز على واتساب</a>
     <a class="btn btn-ghost btn-lg" href="#products">شوف المنتجات</a>
@@ -283,7 +303,7 @@ const PRODUCTS = [
 <!-- Benefits -->
 <section class="reveal">
   <div class="sec-head">
-    <span class="kicker btn-sm">ليه من هنا</span>
+    <span class="kicker btn-sm">ليه من الشريف</span>
     <h2 class="h4">تجربة شراء على مزاجك</h2>
   </div>
   <div class="benefits">
@@ -298,9 +318,9 @@ const PRODUCTS = [
       <p class="body5">سؤالك بيوصل لصاحب الشغل نفسو، مش بوت ولا خدمة عملاء.</p>
     </div>
     <div class="benefit">
-      <i class="ph ph-eye"></i>
-      <h3 class="title2">تشوف قبل ما تتحرك</h3>
-      <p class="body5">مواصفات كل منتج مكتوبة على الموقع، فتوفر مشوار لو المنتج مش مناسب.</p>
+      <i class="ph ph-tag"></i>
+      <h3 class="title2">أسعار محدثة</h3>
+      <p class="body5">الأسعار المعروضة متجمعة من متاجر مصرية كبيرة وتتحدث باستمرار، والسعر النهائي يتأكد على واتساب.</p>
     </div>
     <div class="benefit">
       <i class="ph ph-hand-pointing"></i>
@@ -317,9 +337,9 @@ const PRODUCTS = [
     <h2 class="h4">إزاي تحجز</h2>
   </div>
   <div class="steps">
-    <div class="step"><div class="num btn-md">1</div><h3 class="title2">اتفرج واختار</h3><p class="body5">شوف المنتجات وقارن المواصفات بهدوء.</p></div>
-    <div class="step"><div class="num btn-md">2</div><h3 class="title2">دوس احجز</h3><p class="body5">الزرار بيفتح واتساب برسالة جاهزة فيها اسم المنتج.</p></div>
-    <div class="step"><div class="num btn-md">3</div><h3 class="title2">أكد واستلم</h3><p class="body5">نرد عليك نأكد الحجز والسعر، وتستلم من المحل.</p></div>
+    <div class="step"><div class="num btn-md">1</div><h3 class="title2">اتفرج واختار</h3><p class="body5">شوف الموبايلات وقارن الأسعار والمواصفات بهدوء.</p></div>
+    <div class="step"><div class="num btn-md">2</div><h3 class="title2">دوس احجز</h3><p class="body5">الزرار بيفتح واتساب برسالة جاهزة فيها اسم الموبايل.</p></div>
+    <div class="step"><div class="num btn-md">3</div><h3 class="title2">أكد واستلم</h3><p class="body5">نرد عليك نأكد الحجز والسعر النهائي، وتستلم من المحل.</p></div>
   </div>
 </section>
 
@@ -327,8 +347,9 @@ const PRODUCTS = [
 <section class="reveal" id="products">
   <div class="sec-head">
     <span class="kicker btn-sm">التشكيلة</span>
-    <h2 class="h4">المنتجات</h2>
+    <h2 class="h4">الموبايلات والأسعار</h2>
   </div>
+  <p class="src-note caption2">الأسعار استرشادية "تبدأ من" حسب دريم ستورز ودريم 2000 بتاريخ 27 نوفمبر 2026، وبتتغير يوميًا. السعر النهائي يتأكد على واتساب.</p>
   <div class="chips" id="chips"></div>
   <div class="grid" id="grid"></div>
 </section>
@@ -339,11 +360,11 @@ const PRODUCTS = [
     <span class="kicker btn-sm">عندك سؤال؟</span>
     <h2 class="h4">أسئلة شائعة</h2>
   </div>
-  <details><summary class="title2">إزاي أحجز منتج؟</summary><p class="body5">دوس "احجز عبر واتساب" جنب المنتج، هيفتح واتساب برسالة جاهزة فيها اسم المنتج. ابعتها وهنرد عليك نأكد الحجز.</p></details>
-  <details><summary class="title2">ليه الأسعار مش مكتوبة؟</summary><p class="body5">الأسعار بتتغير باستمرار، فبنأكدلك سعر اليوم على واتساب قبل ما تحجز.</p></details>
+  <details><summary class="title2">إزاي أحجز موبايل؟</summary><p class="body5">دوس "احجز عبر واتساب" جنب الموبايل، هيفتح واتساب برسالة جاهزة فيها اسمه. ابعتها وهنرد عليك نأكد الحجز.</p></details>
+  <details><summary class="title2">الأسعار دي نهائية؟</summary><p class="body5">الأسعار استرشادية من متاجر مصرية كبيرة بتاريخ النهاردة، وبتتغير يوميًا. بنأكدلك سعر اليوم على واتساب قبل ما تحجز.</p></details>
   <details><summary class="title2">أستلم منين؟</summary><p class="body5">بعد ما نأكد الحجز على واتساب، هنقولك عنوان المحل ومواعيد الاستلام.</p></details>
   <details><summary class="title2">في توصيل؟</summary><p class="body5">اسألنا على واتساب عن التوصيل لمنطقتك وهنقولك المتاح.</p></details>
-  <details><summary class="title2">عايز أسأل عن ضمان أو حالة منتج؟</summary><p class="body5">كلمنا على واتساب واسأل عن أي منتج، وهنرد عليك بصراحة وبالتفاصيل.</p></details>
+  <details><summary class="title2">عايز أسأل عن ضمان أو نسخة تانية؟</summary><p class="body5">كلمنا على واتساب واسأل عن أي موبايل أو نسخة تخزين تانية، وهنرد عليك بصراحة وبالتفاصيل.</p></details>
 </section>
 
 <!-- Info -->
@@ -365,9 +386,9 @@ const PRODUCTS = [
 
 <script>
 const wa = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-const hello = "السلام عليكم، عندي استفسار عن منتجاتكم";
+const hello = "السلام عليكم، عندي استفسار عن موبايل";
 
-document.title = CONFIG.shopName + " | احجز موبايلك من مكانك";
+document.title = CONFIG.shopName + " للموبايلات | احجز موبايلك من مكانك";
 document.querySelector('.brand-name').textContent = CONFIG.shopName;
 document.querySelectorAll('.wa-link').forEach(a => a.href = wa(hello));
 
@@ -394,15 +415,15 @@ function render(){
     const card = document.createElement('div');
     card.className = 'card';
     const price = p.price != null
-      ? `<div class="price title2">${p.price.toLocaleString('ar-EG')} جنيه</div>`
-      : `<div class="price ask body5">اسأل عن السعر</div>`;
+      ? `<div class="price title2"><small>يبدأ من</small>${p.price.toLocaleString('ar-EG')} جنيه</div>`
+      : `<div class="price body5">اسأل عن السعر</div>`;
     card.innerHTML = `
       <div class="thumb"><i class="ph ph-${p.icon}"></i></div>
       <div class="body">
         <div class="title2">${p.name}</div>
         <div class="spec caption2">${p.spec}</div>
         ${price}
-        <a class="btn btn-ghost btn-sm reserve" target="_blank" rel="noopener"
+        <a class="btn btn-wa btn-sm reserve" target="_blank" rel="noopener"
            href="${wa(`السلام عليكم، عايز أحجز: ${p.name}`)}"><i class="ph ph-whatsapp-logo"></i>احجز عبر واتساب</a>
       </div>`;
     grid.appendChild(card);
@@ -419,7 +440,7 @@ items.push(["whatsapp-logo","الحجز والاستفسار","واتساب، و
 info.innerHTML = items.map(([ic,b,s]) =>
   `<div class="it"><i class="ph ph-${ic}"></i><div><div class="title2">${b}</div><span class="body5">${s}</span></div></div>`).join('');
 
-document.getElementById('footer').textContent = `© ${new Date().getFullYear()} ${CONFIG.shopName}`;
+document.getElementById('footer').textContent = `© ${new Date().getFullYear()} ${CONFIG.shopName} للموبايلات`;
 
 /* Tagline reveal: كل كلمة بتظهر لوحدها */
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
