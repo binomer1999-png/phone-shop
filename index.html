@@ -166,6 +166,26 @@ section{max-width:1000px; margin:auto; padding:80px 16px}
 .reserve{margin-top:12px; width:100%; justify-content:center}
 @media(max-width:400px){.thumb{font-size:40px}}
 
+/* ===== Order form ===== */
+.ovl{position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; place-items:end center; z-index:50}
+.ovl.open{display:grid}
+.sheet{background:#fff; width:100%; max-width:520px; max-height:92vh; overflow-y:auto; border-radius:20px 20px 0 0; padding:24px 20px 32px}
+.sheet h3{font-size:22px; line-height:30px; margin-bottom:4px}
+.sheet .order-for{color:var(--mut); font-size:15px; margin-bottom:18px}
+.sheet label{display:block; font-size:14px; font-weight:600; margin:14px 0 6px}
+.sheet input, .sheet textarea{width:100%; border:1px solid rgba(0,0,0,.15); border-radius:12px; padding:12px 14px; font:inherit; background:#fff; color:#1D1D1F}
+.sheet input:focus, .sheet textarea:focus{outline:2px solid #1D1D1F; outline-offset:1px; border-color:transparent}
+.sheet textarea{min-height:72px; resize:vertical}
+.pay{display:flex; gap:10px; margin-top:6px}
+.pay label{flex:1; margin:0}
+.pay input{position:absolute; opacity:0; width:auto}
+.pay span{display:block; text-align:center; border:1px solid rgba(0,0,0,.15); border-radius:12px; padding:12px 8px; font-size:14px; font-weight:600; cursor:pointer; transition:all 150ms var(--ease)}
+.pay input:checked + span{background:#1D1D1F; color:#fff; border-color:#1D1D1F}
+.form-note{font-size:13px; color:var(--mut); margin-top:14px; line-height:20px}
+.sheet .send{margin-top:18px; width:100%; justify-content:center}
+.sheet .close-x{position:absolute; top:14px; left:14px}
+.sheet-head{position:relative}
+
 /* ===== FAQ ===== */
 .faq details{
   background:var(--s1); border-radius:16px;
@@ -384,6 +404,33 @@ const PRODUCTS = [
 
 <a class="wa-float wa-link" target="_blank" rel="noopener" aria-label="كلمنا على واتساب"><i class="ph ph-whatsapp-logo"></i></a>
 
+<div class="ovl" id="ovl" onclick="if(event.target===this)closeOrder()">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="نموذج الطلب">
+    <div class="sheet-head">
+      <h3>إتمام الطلب</h3>
+      <div class="order-for" id="orderFor"></div>
+    </div>
+    <form id="orderForm" novalidate>
+      <label for="fName">الاسم</label>
+      <input id="fName" name="name" type="text" required autocomplete="name" placeholder="اسمك الكامل">
+      <label for="fPhone">رقم الموبايل</label>
+      <input id="fPhone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="01xxxxxxxxx">
+      <label for="fEmail">البريد الإلكتروني</label>
+      <input id="fEmail" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="name@example.com">
+      <label for="fAddr">العنوان</label>
+      <input id="fAddr" name="address" type="text" required autocomplete="street-address" placeholder="الشارع، المنطقة، المدينة">
+      <label for="fNotes">ملاحظات (اختياري)</label>
+      <textarea id="fNotes" name="notes" placeholder="أي تفاصيل تانية تحب تضيفها"></textarea>
+      <label>طريقة الدفع</label>
+      <div class="pay">
+        <label><input type="radio" name="pay" value="كاش عند الاستلام" checked><span>كاش عند الاستلام</span></label>
+        <label><input type="radio" name="pay" value="بطاقة / فيزا"><span>بطاقة / فيزا</span></label>
+      </div>
+      <div class="form-note">السعر النهائي بيتأكد على واتساب بعد إرسال الطلب. لو اخترت بطاقة، متكتبش أي أرقام كارت هنا. صاحب المحل هيبعتلك لينك دفع آمن على واتساب. بياناتك بتتبعت على واتساب مباشرة ومبتتخزنش على الموقع.</div>
+      <button type="submit" class="btn btn-acc btn-lg send"><i class="ph ph-whatsapp-logo"></i>أرسل الطلب على واتساب</button>
+    </form>
+  </div>
+</div>
 <script>
 const wa = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
 const hello = "السلام عليكم، عندي استفسار عن موبايل";
@@ -409,6 +456,41 @@ cats.forEach(c => {
 
 /* المنتجات */
 const picked = {};
+let orderPi = null;
+function openOrder(pi){
+  orderPi = pi;
+  const p = PRODUCTS[pi];
+  const col = p.colors ? p.colors[picked[pi] || 0] : null;
+  const priceTxt = p.price != null ? `، يبدأ من ${p.price.toLocaleString('ar-EG')} جنيه` : '';
+  document.getElementById('orderFor').textContent = p.name + (col ? ` - لون ${col.n}` : '') + priceTxt;
+  document.getElementById('ovl').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOrder(){
+  document.getElementById('ovl').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('orderForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const f = e.target;
+  if(!f.reportValidity()) return;
+  const p = PRODUCTS[orderPi];
+  const col = p.colors ? p.colors[picked[orderPi] || 0] : null;
+  const lines = [
+    'السلام عليكم، عايز أطلب:',
+    `الموبايل: ${p.name}` + (col ? ` - لون ${col.n}` : ''),
+    `الاسم: ${f.name.value.trim()}`,
+    `رقم الموبايل: ${f.phone.value.trim()}`,
+    `البريد الإلكتروني: ${f.email.value.trim()}`,
+    `العنوان: ${f.address.value.trim()}`,
+  ];
+  const notes = f.notes.value.trim();
+  if(notes) lines.push(`ملاحظات: ${notes}`);
+  lines.push(`الدفع: ${f.pay.value}`);
+  window.open(wa(lines.join('\n')), '_blank', 'noopener');
+  closeOrder();
+});
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeOrder(); });
 function pickColor(btn, pi, ci){
   picked[pi] = ci;
   const p = PRODUCTS[pi], col = p.colors[ci];
@@ -416,7 +498,6 @@ function pickColor(btn, pi, ci){
   const img = card.querySelector('.thumb img');
   if(img) img.src = col.img;
   card.querySelectorAll('.sw').forEach((s,i) => s.classList.toggle('on', i === ci));
-  card.querySelector('.reserve').href = wa(`السلام عليكم، عايز أحجز: ${p.name} - لون ${col.n}`);
 }
 function render(){
   const grid = document.getElementById('grid');
@@ -434,7 +515,6 @@ function render(){
       `<button type="button" class="sw${i===ci?' on':''}" style="background:${c.c}" title="${c.n}" aria-label="${c.n}" onclick="pickColor(this,${pi},${i})"></button>`).join('')}</div>` : '';
     const thumb = col ? `<img src="${col.img}" alt="${p.name} - ${col.n}" loading="lazy">`
                       : (p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<i class="ph ph-${p.icon}"></i>`);
-    const bookMsg = col ? `السلام عليكم، عايز أحجز: ${p.name} - لون ${col.n}` : `السلام عليكم، عايز أحجز: ${p.name}`;
     card.innerHTML = `
       <div class="thumb">${thumb}</div>
       <div class="body">
@@ -442,8 +522,7 @@ function render(){
         <div class="spec caption2">${p.spec}</div>
         ${price}
         ${swatches}
-        <a class="btn btn-acc btn-sm reserve" target="_blank" rel="noopener"
-           href="${wa(bookMsg)}"><i class="ph ph-whatsapp-logo"></i>احجز عبر واتساب</a>
+        <button type="button" class="btn btn-acc btn-sm reserve" onclick="openOrder(${pi})"><i class="ph ph-whatsapp-logo"></i>اطلب دلوقتي</button>
       </div>`;
     grid.appendChild(card);
   });
