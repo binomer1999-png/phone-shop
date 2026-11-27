@@ -154,6 +154,7 @@ section{max-width:1000px; margin:auto; padding:80px 16px}
   aspect-ratio:4/3; display:grid; place-items:center;
   background:var(--s1); font-size:48px; color:#86868B;
 }
+.thumb img{width:100%; height:100%; object-fit:contain; padding:16px}
 .card .body{padding:16px; display:flex; flex-direction:column; gap:4px; flex:1; text-align:center; align-items:center}
 .card .spec{color:var(--mut)}
 .price{margin-top:auto; padding-top:12px; font-weight:600}
@@ -241,26 +242,26 @@ const CONFIG = {
    cat: سامسونج / آيفون
    icon: اسم أيقونة Phosphor */
 const PRODUCTS = [
-  { name:"جالاكسي A07",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10000 },
-  { name:"جالاكسي A08",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10210 },
-  { name:"جالاكسي A17",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:11400 },
-  { name:"جالاكسي A18",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:13900 },
-  { name:"جالاكسي A17 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:15800 },
-  { name:"جالاكسي A26 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:18050 },
-  { name:"جالاكسي A27 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:18550 },
-  { name:"جالاكسي A36 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:23900 },
-  { name:"جالاكسي A56 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:25000 },
-  { name:"جالاكسي A37 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:26290 },
-  { name:"جالاكسي A57 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:30900 },
+  { name:"جالاكسي A07",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10000, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a075fzkhegy/gallery/eg-galaxy-a07-sm-a075-sm-a075fzkhegy-thumb-548693858?$396_396_PNG$" },
+  { name:"جالاكسي A08",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10210, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a085fdbdegy/gallery/eg-galaxy-a08-sm-a085-sm-a085fdbdegy-thumb-554520552?$396_396_PNG$" },
+  { name:"جالاكسي A17",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:11400, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a175fzkcmea/gallery/eg-galaxy-a17-sm-a175-sm-a175fzkcmea-thumb-549050697?$396_396_PNG$" },
+  { name:"جالاكسي A18",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:13900, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a185glbkegy/gallery/eg-galaxy-a18-sm-a185-sm-a185glbkegy-thumb-554925709?$396_396_PNG$" },
+  { name:"جالاكسي A17 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:15800, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a176bzkgmea/gallery/eg-galaxy-a17-5g-sm-a176-sm-a176bzkgmea-thumb-551025390?$396_396_PNG$" },
+  { name:"جالاكسي A26 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:18050, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a266bzkimea/gallery/eg-galaxy-a26-5g-sm-a266-sm-a266bzkimea-thumb-545489262?$396_396_PNG$" },
+  { name:"جالاكسي A27 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:18550, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a276bzkpmea/gallery/eg-galaxy-a27-5g-sm-a276-sm-a276bzkpmea-thumb-553813179?$396_396_PNG$" },
+  { name:"جالاكسي A36 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:23900, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a366bzavmea/gallery/eg-galaxy-a36-5g-sm-a366-sm-a366bzavmea-thumb-545652845?$396_396_PNG$" },
+  { name:"جالاكسي A56 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:25000, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a566bzawmea/gallery/eg-galaxy-a56-5g-sm-a566-sm-a566bzawmea-thumb-545652138?$396_396_PNG$" },
+  { name:"جالاكسي A37 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:26290, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a376blvvmea/gallery/eg-galaxy-a37-5g-sm-a376-sm-a376blvvmea-thumb-552260889?$396_396_PNG$" },
+  { name:"جالاكسي A57 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:30900, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a576bzapmea/gallery/eg-galaxy-a57-5g-sm-a576-sm-a576bzapmea-thumb-552260574?$396_396_PNG$" },
   { name:"آيفون 15",           cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:57770 },
-  { name:"آيفون 16 بلس",       cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:58190 },
-  { name:"آيفون 16",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:59990 },
-  { name:"آيفون 17",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:75000 },
+  { name:"آيفون 16 بلس",       cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:58190, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_16__feoq604c6fe6_large.jpg" },
+  { name:"آيفون 16",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:59990, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_16__feoq604c6fe6_large.jpg" },
+  { name:"آيفون 17",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:75000, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_17__cuyljf3ic8k2_large.jpg" },
   { name:"آيفون 17 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:95990 },
   { name:"آيفون 17 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:99999 },
-  { name:"آيفون 18 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:119990 },
-  { name:"آيفون 18 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:137990 },
-  { name:"آيفون ديو",          cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:199999 },
+  { name:"آيفون 18 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:119990, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_18_pro__feg8kpsix2ie_large.jpg" },
+  { name:"آيفون 18 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:137990, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_18_pro__feg8kpsix2ie_large.jpg" },
+  { name:"آيفون ديو",          cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:199999, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_duo__l92ve9hb9yqu_large.jpg" },
 ];
 </script>
 
@@ -413,7 +414,7 @@ function render(){
       ? `<div class="price title2"><small>يبدأ من</small>${p.price.toLocaleString('ar-EG')} جنيه</div>`
       : `<div class="price body5">اسأل عن السعر</div>`;
     card.innerHTML = `
-      <div class="thumb"><i class="ph ph-${p.icon}"></i></div>
+      <div class="thumb">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<i class="ph ph-${p.icon}"></i>`}</div>
       <div class="body">
         <div class="title2">${p.name}</div>
         <div class="spec caption2">${p.spec}</div>
