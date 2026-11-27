@@ -155,6 +155,10 @@ section{max-width:1000px; margin:auto; padding:80px 16px}
   background:var(--s1); font-size:48px; color:#86868B;
 }
 .thumb img{width:100%; height:100%; object-fit:contain; padding:16px}
+.sws{display:flex; gap:10px; justify-content:center; margin-top:12px}
+.sw{width:20px; height:20px; border-radius:50%; border:1px solid rgba(0,0,0,.18); cursor:pointer; padding:0; transition:transform 150ms var(--ease)}
+.sw.on{outline:2px solid #1D1D1F; outline-offset:2px}
+.sw:active{transform:scale(.9)}
 .card .body{padding:16px; display:flex; flex-direction:column; gap:4px; flex:1; text-align:center; align-items:center}
 .card .spec{color:var(--mut)}
 .price{margin-top:auto; padding-top:12px; font-weight:600}
@@ -242,26 +246,26 @@ const CONFIG = {
    cat: سامسونج / آيفون
    icon: اسم أيقونة Phosphor */
 const PRODUCTS = [
-  { name:"جالاكسي A07",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10000, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a075fzkhegy/gallery/eg-galaxy-a07-sm-a075-sm-a075fzkhegy-thumb-548693858?$396_396_PNG$" },
-  { name:"جالاكسي A08",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10210, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a085fdbdegy/gallery/eg-galaxy-a08-sm-a085-sm-a085fdbdegy-thumb-554520552?$396_396_PNG$" },
-  { name:"جالاكسي A17",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:11400, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a175fzkcmea/gallery/eg-galaxy-a17-sm-a175-sm-a175fzkcmea-thumb-549050697?$396_396_PNG$" },
-  { name:"جالاكسي A18",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:13900, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a185glbkegy/gallery/eg-galaxy-a18-sm-a185-sm-a185glbkegy-thumb-554925709?$396_396_PNG$" },
-  { name:"جالاكسي A17 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:15800, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a176bzkgmea/gallery/eg-galaxy-a17-5g-sm-a176-sm-a176bzkgmea-thumb-551025390?$396_396_PNG$" },
-  { name:"جالاكسي A26 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:18050, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a266bzkimea/gallery/eg-galaxy-a26-5g-sm-a266-sm-a266bzkimea-thumb-545489262?$396_396_PNG$" },
-  { name:"جالاكسي A27 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:18550, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a276bzkpmea/gallery/eg-galaxy-a27-5g-sm-a276-sm-a276bzkpmea-thumb-553813179?$396_396_PNG$" },
-  { name:"جالاكسي A36 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:23900, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a366bzavmea/gallery/eg-galaxy-a36-5g-sm-a366-sm-a366bzavmea-thumb-545652845?$396_396_PNG$" },
-  { name:"جالاكسي A56 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:25000, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a566bzawmea/gallery/eg-galaxy-a56-5g-sm-a566-sm-a566bzawmea-thumb-545652138?$396_396_PNG$" },
-  { name:"جالاكسي A37 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:26290, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a376blvvmea/gallery/eg-galaxy-a37-5g-sm-a376-sm-a376blvvmea-thumb-552260889?$396_396_PNG$" },
-  { name:"جالاكسي A57 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:30900, img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a576bzapmea/gallery/eg-galaxy-a57-5g-sm-a576-sm-a576bzapmea-thumb-552260574?$396_396_PNG$" },
-  { name:"آيفون 15",           cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:57770 },
-  { name:"آيفون 16 بلس",       cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:58190, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_16__feoq604c6fe6_large.jpg" },
-  { name:"آيفون 16",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:59990, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_16__feoq604c6fe6_large.jpg" },
-  { name:"آيفون 17",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:75000, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_17__cuyljf3ic8k2_large.jpg" },
-  { name:"آيفون 17 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:95990 },
-  { name:"آيفون 17 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:99999 },
-  { name:"آيفون 18 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:119990, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_18_pro__feg8kpsix2ie_large.jpg" },
-  { name:"آيفون 18 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:137990, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_18_pro__feg8kpsix2ie_large.jpg" },
-  { name:"آيفون ديو",          cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:199999, img:"https://www.apple.com/v/iphone/home/cl/images/overview/select/iphone_duo__l92ve9hb9yqu_large.jpg" },
+  { name:"جالاكسي A07",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10000 , colors:[{n:"أسود",c:"#262626",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a075fzkhegy/gallery/eg-galaxy-a07-sm-a075-sm-a075fzkhegy-thumb-548693858?$396_396_PNG$"},{n:"أخضر",c:"#4a6b52",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a075fzgiegy/gallery/eg-galaxy-a07-sm-a075-573861-sm-a075fzgiegy-thumb-550449354?$396_396_PNG$"},{n:"بنفسجي فاتح",c:"#c9b8d9",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a075flvhegy/gallery/eg-galaxy-a07-sm-a075-sm-a075flvhegy-thumb-548693735?$396_396_PNG$"}] },
+  { name:"جالاكسي A08",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 64 جيجا",   price:10210 , colors:[{n:"كحلي",c:"#2e3d52",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a085fdbhegy/gallery/eg-galaxy-a08-sm-a085-sm-a085fdbhegy-thumb-554520600?$396_396_PNG$"}] },
+  { name:"جالاكسي A17",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:11400 , colors:[{n:"أسود",c:"#262626",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a175fzkcmea/gallery/eg-galaxy-a17-sm-a175-sm-a175fzkcmea-thumb-549050697?$396_396_PNG$"},{n:"رمادي",c:"#8b8b8b",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a175fzacmea/gallery/eg-galaxy-a17-sm-a175-sm-a175fzacmea-thumb-549050640?$396_396_PNG$"},{n:"أزرق فاتح",c:"#aecfe6",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a175flbomea/gallery/eg-galaxy-a17-sm-a175-sm-a175flbomea-thumb-549050621?$396_396_PNG$"}] },
+  { name:"جالاكسي A18",        cat:"سامسونج", icon:"device-mobile", spec:"4 رام · 128 جيجا",  price:13900 , colors:[{n:"أزرق فاتح",c:"#aecfe6",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a185glbkegy/gallery/eg-galaxy-a18-sm-a185-sm-a185glbkegy-thumb-554925709?$396_396_PNG$"}] },
+  { name:"جالاكسي A17 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:15800 , colors:[{n:"أسود",c:"#262626",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a176bzkgmea/gallery/eg-galaxy-a17-5g-sm-a176-sm-a176bzkgmea-thumb-551025390?$396_396_PNG$"},{n:"أزرق",c:"#3a5fb0",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a176bzbgmea/gallery/eg-galaxy-a17-5g-sm-a176-sm-a176bzbgmea-thumb-551025371?$396_396_PNG$"},{n:"رمادي",c:"#8b8b8b",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a176bzagmea/gallery/eg-galaxy-a17-5g-sm-a176-sm-a176bzagmea-thumb-551025352?$396_396_PNG$"}] },
+  { name:"جالاكسي A26 5G",     cat:"سامسونج", icon:"device-mobile", spec:"6 رام · 128 جيجا",  price:18050 , colors:[{n:"أسود",c:"#262626",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a266bzkimea/gallery/eg-galaxy-a26-5g-sm-a266-sm-a266bzkimea-thumb-545489262?$396_396_PNG$"},{n:"وردي خوخي",c:"#f2c9c2",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a266bziimea/gallery/eg-galaxy-a26-5g-sm-a266-sm-a266bziimea-thumb-545489215?$396_396_PNG$"}] },
+  { name:"جالاكسي A27 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:18550 , colors:[{n:"أسود",c:"#262626",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a276bzkpmea/gallery/eg-galaxy-a27-5g-sm-a276-sm-a276bzkpmea-thumb-553813179?$396_396_PNG$"},{n:"أزرق",c:"#3a5fb0",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a276bzbpmea/gallery/eg-galaxy-a27-5g-sm-a276-sm-a276bzbpmea-thumb-553813122?$396_396_PNG$"}] },
+  { name:"جالاكسي A36 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:23900 , colors:[{n:"أبيض",c:"#f2f2f2",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a366bzavmea/gallery/eg-galaxy-a36-5g-sm-a366-sm-a366bzavmea-thumb-545652845?$396_396_PNG$"},{n:"أسود",c:"#262626",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a366bzkpmea/gallery/eg-galaxy-a36-5g-sm-a366-sm-a366bzkpmea-thumb-545652864?$396_396_PNG$"},{n:"لايم",c:"#dde39a",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a366blgpmea/gallery/eg-galaxy-a36-5g-sm-a366-sm-a366blgpmea-thumb-545652750?$396_396_PNG$"}] },
+  { name:"جالاكسي A56 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 128 جيجا",  price:25000 , colors:[{n:"رمادي فاتح",c:"#d4d4d4",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a566bzawmea/gallery/eg-galaxy-a56-5g-sm-a566-sm-a566bzawmea-thumb-545652138?$396_396_PNG$"},{n:"زيتوني",c:"#7a7d5a",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a566bzgymea/gallery/eg-galaxy-a56-5g-sm-a566-sm-a566bzgymea-thumb-545652230?$396_396_PNG$"},{n:"وردي",c:"#ecc3cf",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a566blivmea/gallery/eg-galaxy-a56-5g-sm-a566-sm-a566blivmea-thumb-545652046?$396_396_PNG$"}] },
+  { name:"جالاكسي A37 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:26290 , colors:[{n:"لافندر",c:"#c3b1d4",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a376blvvmea/gallery/eg-galaxy-a37-5g-sm-a376-sm-a376blvvmea-thumb-552260889?$396_396_PNG$"},{n:"فحمي",c:"#3b3b3b",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a376bzawmea/gallery/eg-galaxy-a37-5g-sm-a376-sm-a376bzawmea-thumb-552260976?$396_396_PNG$"},{n:"أخضر رمادي",c:"#9aa78f",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a376bdgpmea/gallery/eg-galaxy-a37-5g-sm-a376-sm-a376bdgpmea-thumb-552260813?$396_396_PNG$"},{n:"أبيض",c:"#f2f2f2",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a376bzwwmea/gallery/eg-galaxy-a37-5g-sm-a376-sm-a376bzwwmea-thumb-552261057?$396_396_PNG$"}] },
+  { name:"جالاكسي A57 5G",     cat:"سامسونج", icon:"device-mobile", spec:"8 رام · 256 جيجا",  price:30900 , colors:[{n:"رمادي",c:"#8f8f8f",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a576bzapmea/gallery/eg-galaxy-a57-5g-sm-a576-sm-a576bzapmea-thumb-552260574?$396_396_PNG$"},{n:"أزرق جليدي",c:"#bcd9e8",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a576blbpmea/gallery/eg-galaxy-a57-5g-sm-a576-sm-a576blbpmea-thumb-552260495?$396_396_PNG$"},{n:"كحلي",c:"#2c3a56",img:"https://images.samsung.com/is/image/samsung/p6pim/eg/sm-a576bdbpmea/gallery/eg-galaxy-a57-5g-sm-a576-sm-a576bdbpmea-thumb-552260432?$396_396_PNG$"}] },
+  { name:"آيفون 15",           cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:57770  },
+  { name:"آيفون 16 بلس",       cat:"آيفون",   icon:"device-mobile", spec:"128 جيجا",          price:58190 , colors:[{n:"أسود",c:"#3c3c3d",img:"https://as-images.apple.com/is/iphone-16-black-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"أبيض",c:"#f7f7f7",img:"https://as-images.apple.com/is/iphone-16-white-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"وردي",c:"#f2b8c6",img:"https://as-images.apple.com/is/iphone-16-pink-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"أخضر مائي",c:"#b0d4ce",img:"https://as-images.apple.com/is/iphone-16-teal-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"أزرق",c:"#9fb0e8",img:"https://as-images.apple.com/is/iphone-16-ultramarine-select-202409?wid=440&hei=520&fmt=png-alpha"}] },
+  { name:"آيفون 16",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:59990 , colors:[{n:"أسود",c:"#3c3c3d",img:"https://as-images.apple.com/is/iphone-16-black-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"أبيض",c:"#f7f7f7",img:"https://as-images.apple.com/is/iphone-16-white-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"وردي",c:"#f2b8c6",img:"https://as-images.apple.com/is/iphone-16-pink-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"أخضر مائي",c:"#b0d4ce",img:"https://as-images.apple.com/is/iphone-16-teal-select-202409?wid=440&hei=520&fmt=png-alpha"},{n:"أزرق",c:"#9fb0e8",img:"https://as-images.apple.com/is/iphone-16-ultramarine-select-202409?wid=440&hei=520&fmt=png-alpha"}] },
+  { name:"آيفون 17",           cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:75000 , colors:[{n:"أسود",c:"#3c3c3d",img:"https://as-images.apple.com/is/iphone-17-finish-select-black-202509?wid=440&hei=520&fmt=png-alpha"},{n:"أبيض",c:"#f7f7f7",img:"https://as-images.apple.com/is/iphone-17-finish-select-white-202509?wid=440&hei=520&fmt=png-alpha"},{n:"لافندر",c:"#e6dff0",img:"https://as-images.apple.com/is/iphone-17-finish-select-lavender-202509?wid=440&hei=520&fmt=png-alpha"},{n:"أزرق ضبابي",c:"#d2e0e5",img:"https://as-images.apple.com/is/iphone-17-finish-select-mistblue-202509?wid=440&hei=520&fmt=png-alpha"},{n:"أخضر فاتح",c:"#d4dbc4",img:"https://as-images.apple.com/is/iphone-17-finish-select-sage-202509?wid=440&hei=520&fmt=png-alpha"}] },
+  { name:"آيفون 17 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:95990  },
+  { name:"آيفون 17 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:99999  },
+  { name:"آيفون 18 برو",       cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:119990 , colors:[{n:"أسود",c:"#3c3c3d",img:"https://as-images.apple.com/is/iphone-18-pro-finish-select-black-202609?wid=440&hei=520&fmt=png-alpha"},{n:"فضي",c:"#e3e4e6",img:"https://as-images.apple.com/is/iphone-18-pro-finish-select-silver-202609?wid=440&hei=520&fmt=png-alpha"},{n:"جليدي",c:"#dfe6ea",img:"https://as-images.apple.com/is/iphone-18-pro-finish-select-glacier-202609?wid=440&hei=520&fmt=png-alpha"},{n:"عنابي",c:"#6e2737",img:"https://as-images.apple.com/is/iphone-18-pro-finish-select-burgundy-202609?wid=440&hei=520&fmt=png-alpha"}] },
+  { name:"آيفون 18 برو ماكس",  cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:137990 , colors:[{n:"أسود",c:"#3c3c3d",img:"https://as-images.apple.com/is/iphone-18-pro-max-finish-select-black-202609?wid=440&hei=520&fmt=png-alpha"},{n:"فضي",c:"#e3e4e6",img:"https://as-images.apple.com/is/iphone-18-pro-max-finish-select-silver-202609?wid=440&hei=520&fmt=png-alpha"},{n:"جليدي",c:"#dfe6ea",img:"https://as-images.apple.com/is/iphone-18-pro-max-finish-select-glacier-202609?wid=440&hei=520&fmt=png-alpha"},{n:"عنابي",c:"#6e2737",img:"https://as-images.apple.com/is/iphone-18-pro-max-finish-select-burgundy-202609?wid=440&hei=520&fmt=png-alpha"}] },
+  { name:"آيفون ديو",          cat:"آيفون",   icon:"device-mobile", spec:"256 جيجا",          price:199999 , colors:[{n:"أسود ليلي",c:"#232a38",img:"https://as-images.apple.com/is/iphone-duo-finish-select-night-sky-202609?wid=440&hei=520&fmt=png-alpha"},{n:"أبيض نجمي",c:"#f4f1ea",img:"https://as-images.apple.com/is/iphone-duo-finish-select-star-white-202609?wid=440&hei=520&fmt=png-alpha"}] },
 ];
 </script>
 
@@ -404,23 +408,42 @@ cats.forEach(c => {
 });
 
 /* المنتجات */
+const picked = {};
+function pickColor(btn, pi, ci){
+  picked[pi] = ci;
+  const p = PRODUCTS[pi], col = p.colors[ci];
+  const card = btn.closest('.card');
+  const img = card.querySelector('.thumb img');
+  if(img) img.src = col.img;
+  card.querySelectorAll('.sw').forEach((s,i) => s.classList.toggle('on', i === ci));
+  card.querySelector('.reserve').href = wa(`السلام عليكم، عايز أحجز: ${p.name} - لون ${col.n}`);
+}
 function render(){
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
-  PRODUCTS.filter(p => active === "الكل" || p.cat === active).forEach(p => {
+  PRODUCTS.forEach((p, pi) => {
+    if(active !== "الكل" && p.cat !== active) return;
+    const ci = picked[pi] || 0;
+    const col = p.colors ? p.colors[ci] : null;
     const card = document.createElement('div');
     card.className = 'card';
     const price = p.price != null
       ? `<div class="price title2"><small>يبدأ من</small>${p.price.toLocaleString('ar-EG')} جنيه</div>`
       : `<div class="price body5">اسأل عن السعر</div>`;
+    const swatches = p.colors ? `<div class="sws">${p.colors.map((c,i) =>
+      `<button type="button" class="sw${i===ci?' on':''}" style="background:${c.c}" title="${c.n}" aria-label="${c.n}" onclick="pickColor(this,${pi},${i})"></button>`).join('')}</div>` : '';
+    const thumb = col ? `<img src="${col.img}" alt="${p.name} - ${col.n}" loading="lazy">`
+                      : (p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<i class="ph ph-${p.icon}"></i>`);
+    const bookMsg = col ? `السلام عليكم، عايز أحجز: ${p.name} - لون ${col.n}` : `السلام عليكم، عايز أحجز: ${p.name}`;
     card.innerHTML = `
-      <div class="thumb">${p.img ? `<img src="${p.img}" alt="${p.name}" loading="lazy">` : `<i class="ph ph-${p.icon}"></i>`}</div>
+      <div class="thumb">${thumb}</div>
       <div class="body">
         <div class="title2">${p.name}</div>
         <div class="spec caption2">${p.spec}</div>
         ${price}
+        ${swatches}
         <a class="btn btn-acc btn-sm reserve" target="_blank" rel="noopener"
-           href="${wa(`السلام عليكم، عايز أحجز: ${p.name}`)}"><i class="ph ph-whatsapp-logo"></i>احجز عبر واتساب</a>
+           href="${wa(bookMsg)}"><i class="ph ph-whatsapp-logo"></i>احجز عبر واتساب</a>
       </div>`;
     grid.appendChild(card);
   });
