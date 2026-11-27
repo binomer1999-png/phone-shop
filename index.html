@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محل الموبايلات</title>
+<meta name="description" content="تشكيلة موبايلات وإكسسوارات. احجز من الموقع أو كلمنا واتساب.">
+<meta name="theme-color" content="#0e1116">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1116; --card:#171c24; --card2:#1d2430; --line:#262f3d;
+    --txt:#f2f5f9; --mut:#9aa7b8; --acc:#f5b53f; --acc2:#25d366;
+    --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cairo',system-ui,sans-serif;
+    background:var(--bg); color:var(--txt);
+    line-height:1.7; padding-bottom:90px;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(14,17,22,.92); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{
+    max-width:1000px; margin:auto; padding:12px 16px;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.15rem}
+  .brand .logo{
+    width:38px; height:38px; border-radius:12px; display:grid; place-items:center;
+    background:linear-gradient(135deg,#f5b53f,#e07b2a); font-size:1.2rem;
+  }
+  .wa-top{
+    display:flex; align-items:center; gap:8px;
+    background:var(--acc2); color:#062b16; font-weight:700; font-size:.9rem;
+    padding:8px 14px; border-radius:999px;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    max-width:1000px; margin:auto; padding:44px 16px 26px; text-align:center;
+  }
+  .hero h1{font-size:clamp(1.5rem,5.5vw,2.4rem); font-weight:800; line-height:1.4}
+  .hero h1 span{color:var(--acc)}
+  .hero p{color:var(--mut); margin:12px auto 22px; max-width:520px}
+  .cta-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:999px; font-weight:700; font-size:1rem;
+    border:none; cursor:pointer; font-family:inherit;
+  }
+  .btn-wa{background:var(--acc2); color:#062b16}
+  .btn-ghost{background:var(--card2); color:var(--txt); border:1px solid var(--line)}
+
+  /* ===== Sections ===== */
+  section{max-width:1000px; margin:auto; padding:8px 16px}
+  .sec-title{font-size:1.3rem; font-weight:800; margin:26px 0 4px}
+  .sec-sub{color:var(--mut); font-size:.95rem; margin-bottom:16px}
+
+  /* ===== Filter chips ===== */
+  .chips{display:flex; gap:8px; overflow-x:auto; padding:4px 0 12px; scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto; padding:7px 16px; border-radius:999px; font-size:.9rem; font-weight:600;
+    background:var(--card); border:1px solid var(--line); color:var(--mut); cursor:pointer;
+    font-family:inherit;
+  }
+  .chip.on{background:var(--acc); border-color:var(--acc); color:#231a05}
+
+  /* ===== Product grid ===== */
+  .grid{
+    display:grid; gap:14px;
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  }
+  @media(min-width:640px){.grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .thumb{
+    aspect-ratio:4/3; display:grid; place-items:center; font-size:3rem;
+    background:linear-gradient(135deg,var(--card2),#12161d);
+  }
+  .body{padding:12px 14px; display:flex; flex-direction:column; gap:6px; flex:1}
+  .name{font-weight:700; font-size:1rem; line-height:1.5}
+  .spec{color:var(--mut); font-size:.82rem}
+  .price{font-weight:800; color:var(--acc); font-size:1.02rem; margin-top:auto; padding-top:6px}
+  .price.ask{color:var(--mut); font-weight:600; font-size:.88rem}
+  .reserve{
+    margin-top:8px; width:100%; justify-content:center;
+    background:var(--card2); border:1px solid var(--line); color:var(--txt);
+    padding:9px 10px; font-size:.92rem;
+  }
+  .reserve:hover{border-color:var(--acc2)}
+
+  /* ===== Info strip ===== */
+  .info{
+    margin-top:30px; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:18px;
+    display:grid; gap:14px;
+  }
+  @media(min-width:640px){.info{grid-template-columns:repeat(3,1fr)}}
+  .info .it{display:flex; gap:10px; align-items:flex-start}
+  .info .ic{font-size:1.3rem}
+  .info b{display:block; font-size:.95rem}
+  .info span{color:var(--mut); font-size:.85rem}
+
+  footer{
+    text-align:center; color:var(--mut); font-size:.85rem;
+    padding:34px 16px 10px;
+  }
+
+  /* ===== Floating WhatsApp ===== */
+  .wa-float{
+    position:fixed; bottom:18px; left:18px; z-index:60;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--acc2); display:grid; place-items:center;
+    box-shadow:0 6px 20px rgba(37,211,102,.4);
+  }
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+  إعدادات المحل — عدّل من هنا بس
+  shopName : اسم المحل (بيظهر فوق وفي العنوان)
+  whatsapp : رقم الواتساب بالكود الدولي من غير + (مثال: 201117251816)
+  address  : عنوان المحل (سيبه فاضي "" لو مش عايز يظهر)
+  hours    : مواعيد الشغل (سيبه فاضي "" لو مش عايز يظهر)
+============================================================ -->
+<script>
+const CONFIG = {
+  shopName: "محل الموبايلات",
+  whatsapp: "201117251816",
+  address:  "",
+  hours:    "يوميًا من 10 صباحًا لـ 11 مساءً"
+};
+
+/* المنتجات — دي أمثلة، بدّلها بمنتجاتك.
+   price: الرقم بالجنيه، أو null لو عايز يظهر "تواصل لمعرفة السعر"
+   cat: موبايلات / سماعات / إكسسوارات */
+const PRODUCTS = [
+  { name:"آيفون 15",            cat:"موبايلات",  emoji:"📱", spec:"128 جيجا · ضمان سنة",        price:null },
+  { name:"سامسونج جالاكسي A55", cat:"موبايلات",  emoji:"📱", spec:"256 جيجا · 8 رام",           price:null },
+  { name:"شاومي ريدمي نوت 13",  cat:"موبايلات",  emoji:"📱", spec:"256 جيجا · بطارية 5000",     price:null },
+  { name:"سماعة بلوتوث",        cat:"سماعات",    emoji:"🎧", spec:"عزل ضوضاء · بطارية 30 ساعة", price:null },
+  { name:"شاحن سريع 65 واط",    cat:"إكسسوارات", emoji:"🔌", spec:"تايب سي · أصلي",             price:null },
+  { name:"جراب حماية + اسكرينة",cat:"إكسسوارات", emoji:"🛡️", spec:"لكل الموديلات",              price:null },
+];
+</script>
+
+<header>
+  <div class="bar">
+    <div class="brand"><div class="logo">📱</div><span id="brand-name"></span></div>
+    <a class="wa-top" id="wa-top" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.8 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.3z"/></svg>
+      واتساب
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>اختار موبايلك <span>واحجزه في دقيقة</span></h1>
+  <p>تشكيلة موبايلات وإكسسوارات أصلية. احجز اللي عاجبك من هنا، أو كلمنا واتساب وهنجاوبك في الحال.</p>
+  <div class="cta-row">
+    <a class="btn btn-wa" id="hero-wa" target="_blank" rel="noopener">كلّمنا واتساب</a>
+    <a class="btn btn-ghost" href="#products">شوف المنتجات</a>
+  </div>
+</div>
+
+<section id="products">
+  <h2 class="sec-title">المنتجات</h2>
+  <p class="sec-sub">اضغط "احجز" وهنفتح ليك واتساب برسالة جاهزة فيها اسم المنتج.</p>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section>
+  <div class="info" id="info"></div>
+</section>
+
+<footer id="footer"></footer>
+
+<a class="wa-float" id="wa-float" target="_blank" rel="noopener" aria-label="واتساب">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5-.3.6-.6.8-.4 1.1.7 1.2 1.6 2 2.8 2.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .7-.3 1.3z"/></svg>
+</a>
+
+<script>
+const wa = (msg) => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+
+// الاسم واللينكات
+document.title = CONFIG.shopName;
+document.getElementById('brand-name').textContent = CONFIG.shopName;
+const hello = "السلام عليكم، عندي استفسار عن منتجاتكم";
+for (const id of ['wa-top','hero-wa','wa-float'])
+  document.getElementById(id).href = wa(hello);
+
+// الفلاتر
+const cats = ["الكل", ...new Set(PRODUCTS.map(p => p.cat))];
+const chipsEl = document.getElementById('chips');
+let active = "الكل";
+cats.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'chip' + (c === active ? ' on' : '');
+  b.textContent = c;
+  b.onclick = () => { active = c; render(); [...chipsEl.children].forEach(x => x.classList.toggle('on', x.textContent === c)); };
+  chipsEl.appendChild(b);
+});
+
+// المنتجات
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  PRODUCTS.filter(p => active === "الكل" || p.cat === active).forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const price = p.price != null
+      ? `<div class="price">${p.price.toLocaleString('ar-EG')} جنيه</div>`
+      : `<div class="price ask">تواصل لمعرفة السعر</div>`;
+    card.innerHTML = `
+      <div class="thumb">${p.emoji}</div>
+      <div class="body">
+        <div class="name">${p.name}</div>
+        <div class="spec">${p.spec}</div>
+        ${price}
+        <a class="btn reserve" target="_blank" rel="noopener"
+           href="${wa(`السلام عليكم، عايز أحجز: ${p.name}`)}">احجز عبر واتساب</a>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+render();
+
+// معلومات المحل
+const info = document.getElementById('info');
+const items = [];
+if (CONFIG.address) items.push(["📍","العنوان", CONFIG.address]);
+if (CONFIG.hours)   items.push(["🕒","مواعيد الشغل", CONFIG.hours]);
+items.push(["💬","الحجز والاستفسار","واتساب — بنرد في الحال"]);
+info.innerHTML = items.map(([ic,b,s]) =>
+  `<div class="it"><div class="ic">${ic}</div><div><b>${b}</b><span>${s}</span></div></div>`).join('');
+
+document.getElementById('footer').textContent = `© ${new Date().getFullYear()} ${CONFIG.shopName}`;
+</script>
+</body>
+</html>
