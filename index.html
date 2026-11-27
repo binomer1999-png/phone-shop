@@ -18,7 +18,7 @@
 /* ===== Design tokens (landing-page-design skill) ===== */
 :root{
   --bg:#FFFFFF; --s1:#F5F5F7; --line:#D2D2D7;
-  --txt:#1D1D1F; --mut:#6E6E73; --acc:#0071E3; --acc-hover:#0077ED;
+  --txt:#1D1D1F; --mut:#6E6E73; --acc:#1D1D1F; --acc-hover:#3A3A3C;
   --ease:cubic-bezier(0.22,1,0.36,1);
 }
 .h1{font-size:60px;line-height:60px;font-weight:600}
@@ -81,8 +81,8 @@ nav{
 .btn:active{transform:scale(.98)}
 .btn-acc{background:var(--acc); color:#fff}
 .btn-acc:hover{background:var(--acc-hover)}
-.btn-ghost{background:transparent; color:var(--acc); border-color:var(--acc)}
-.btn-ghost:hover{background:rgba(0,113,227,.08)}
+.btn-ghost{background:transparent; color:var(--txt); border-color:var(--line)}
+.btn-ghost:hover{background:var(--s1)}
 
 /* ===== Layout ===== */
 main{overflow:hidden}
